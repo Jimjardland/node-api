@@ -1,0 +1,25 @@
+{
+  "name": "nhl-node-api",
+  "version": "1.0.0",
+  "description": "Simple node.js API that shows leaderboards for NHL teams using screen scraping.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jimjardland/node-api.git"
+  },
+  "author": "Jimmy Jardland",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jimjardland/node-api/issues"
+  },
+  "homepage": "https://github.com/Jimjardland/node-api#readme",
+  "devDependencies": {
+    "express": "^4.14.0",
+    "jsdom": "^9.8.3",
+    "redis": "^2.6.3"
+  }
+}
