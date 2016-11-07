@@ -2,7 +2,7 @@ import jsdom from 'jsdom';
 
 export default (team, retVal) => {
 	const jquery = 'http://code.jquery.com/jquery.js';
-	const url = 'https://www.nhl.com/' + team;
+	const url = `https://www.nhl.com/${team}`;
 	const promise = new Promise ((resolve, reject) => {
 		jsdom.env(url, [jquery], (err, window) => {
 			const leaders = [],
