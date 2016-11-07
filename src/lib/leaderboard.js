@@ -1,23 +1,22 @@
-var jsdom = require('jsdom');
-var jquery = 'http://code.jquery.com/jquery.js';
+import jsdom from 'jsdom';
+const jquery = 'http://code.jquery.com/jquery.js';
 
-exports.players = function (team, retVal) {
-	var url = 'https://www.nhl.com/' + team;
-
-	jsdom.env(url, [jquery],  
-		function (err, window) {
-			var leaders = [],
+export default (team, retVal) => {
+	const url = 'https://www.nhl.com/' + team;
+	const promise = new Promise ((resolve, reject) => {
+		jsdom.env(url, [jquery], (err, window) => {
+			const leaders = [],
 			$ = window.$,
 			leaderbord = $('.leaderboard ul .leaderboard__list-item');
 
 			leaderbord.each(function (i, val) {
-			 	var item = $(val);
+			 	const item = $(val);
 
-			 	var getTextValue = function (selector) {
+			 	const getTextValue = (selector) => {
 			 		return item.find(selector).text();
 			 	}
 
-			 	var leader = {
+			 	const leader = {
 			 		avatar: item.find('.player-avatar__img').attr('src'),
 			 		firstName: getTextValue('.leaderboard__player-first-name'),
 			 		lastName: getTextValue('.leaderboard__player-last-name'),
@@ -31,6 +30,9 @@ exports.players = function (team, retVal) {
 			 	leaders.push(leader);
 			 });
 
-			retVal(leaders);
+			resolve(leaders);
   		});
+	});
+
+	return promise;
 };

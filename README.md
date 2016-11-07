@@ -4,13 +4,17 @@ Simple node.js API that shows leaderboards for NHL teams using screen scraping.
 
 npm install
 
-node server.js
+npm run build
+
+run redis-server (http://redis.io/)
+
+node _dist\server.js
 
 
 # API
 
-localhost/api/v1/blackhawks
+localhost/api/v2/blackhawks
 
 OR ignoreCache
 
-localhost/api/v1/blackhawks?ignoreCache=true
+localhost/api/v2/blackhawks?ignoreCache=true
