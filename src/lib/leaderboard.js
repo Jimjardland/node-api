@@ -1,7 +1,7 @@
 import jsdom from 'jsdom';
-const jquery = 'http://code.jquery.com/jquery.js';
 
 export default (team, retVal) => {
+	const jquery = 'http://code.jquery.com/jquery.js';
 	const url = 'https://www.nhl.com/' + team;
 	const promise = new Promise ((resolve, reject) => {
 		jsdom.env(url, [jquery], (err, window) => {
@@ -11,10 +11,7 @@ export default (team, retVal) => {
 
 			leaderbord.each(function (i, val) {
 			 	const item = $(val);
-
-			 	const getTextValue = (selector) => {
-			 		return item.find(selector).text();
-			 	}
+			 	const getTextValue = (selector) => item.find(selector).text();
 
 			 	const leader = {
 			 		avatar: item.find('.player-avatar__img').attr('src'),
